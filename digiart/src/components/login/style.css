@@ -1,15 +1,14 @@
-.signup-form{
+.login-form{
     width: 40%;
     display: flex;
     flex-direction: column;
 }
 
-.signup-form-body{
+.login-form-body{
     text-align: left;
-    /* padding: 20px 10px; */
 }
 
-.signup-header {
+.login-header {
     color: #fff;
     font-size: 2rem;
     align-self: center;
@@ -39,7 +38,7 @@
     outline: 2px solid rgb(189, 21, 240);
 }
 
-.signup-button {
+.login-button {
     align-self: center;
 }
 
