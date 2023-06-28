@@ -14,7 +14,6 @@ export function UserAuthContextProvider({ children }) {
     const [user, setUser] = useState('');
 
     function signup(email, password) {
-        console.log(99999999999);
         createUserWithEmailAndPassword(auth, email, password);
     }
     function login(email, password) {
@@ -30,7 +29,7 @@ export function UserAuthContextProvider({ children }) {
         }
     }, []);
      return (
-        <userAuthContext.Provider value={{user, signup}}>{children}</userAuthContext.Provider>
+        <userAuthContext.Provider value={{user, signup, login}}>{children}</userAuthContext.Provider>
      );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../../context/UserAuthContext';
-// import { Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 import './style.css'
 
@@ -15,15 +15,17 @@ function SignUpForm() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
 
-    const { signUp } = useUserAuth();
+    const navigate = useNavigate();
+
+    const { signup } = useUserAuth();
 
     const handleSubmit = async (e) => {
-        console.log(111111111);
         e.preventDefault();
         setError("");
         try {
-            await signUp(email, password);
-        } catch(err) {
+            await signup(email, password);
+            navigate('/login');
+        } catch (err) {
             setError(err.message);
         }
     }
@@ -53,7 +55,7 @@ function SignUpForm() {
         <div className="signup-form">
             <div className='signup-header'>Create account</div>
             <div className="signup-form-body">
-                {/* {error && <Alert variant='danger'>{error}</Alert>} */}
+                {error && <Alert variant='danger'>{error}</Alert>}
                 <div className="username label-input">
                     <label className="label" for="firstName">First Name </label>
                     <input className="input" type="text" id="firstName" value={firstName} onChange={(e) => handleInputChange(e)} placeholder="first name" />
