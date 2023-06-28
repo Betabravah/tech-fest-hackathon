@@ -10,9 +10,16 @@ function LoginForm() {
   const navigate = useNavigate();
   const { login } = useUserAuth();
 
-  if (id === "email") {
-    setEmail(value);
-  }
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+
+    if (id === "email") {
+      setEmail(value);
+    }
+    if (id === "password") {
+      setPassword(value);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,16 +32,12 @@ function LoginForm() {
     }
   };
 
-  const handleSubmit = () => {
-    console.log(email, password);
-  };
-
   return (
     <div className="login-form">
       <div className="login-header">Login to your account</div>
       <div className="login-form-body">
         <div className="email label-input">
-          <label className="label" htmlFor="email">
+          <label className="label" for="email">
             Email{" "}
           </label>
           <input
@@ -47,7 +50,7 @@ function LoginForm() {
           />
         </div>
         <div className="password label-input">
-          <label className="label" htmlFor="password">
+          <label className="label" for="password">
             Password{" "}
           </label>
           <input
@@ -72,5 +75,4 @@ function LoginForm() {
     </div>
   );
 }
-
 export default LoginForm;
