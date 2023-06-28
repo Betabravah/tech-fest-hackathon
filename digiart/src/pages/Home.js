@@ -26,7 +26,6 @@ export default function Home() {
         <p className="p-big">A platform to discover talent and also show your own skills</p>
       </div>
         <Projects />
-        <Preview />
     </div>
     
   );
