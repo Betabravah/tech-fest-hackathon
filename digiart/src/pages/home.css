@@ -78,3 +78,27 @@
     grid-template-columns: repeat(3, 25rem);
     grid-gap: 0rem;
 }
+.container{
+    background-color: white;
+}
+.pre{
+    display: flex;
+    flex-direction: row;
+    padding-left: 6rem;
+    
+}
+.button{
+    background-color: red;
+    color: white;
+}
+.pre-img{
+    width: 70%;
+    height: 90vh;
+    padding-left: 6rem;
+}
+.pre-icon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}

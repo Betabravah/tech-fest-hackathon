@@ -1,9 +1,9 @@
 import { Menu } from "@mui/material";
 import React from "react";
-import image from "../img/background1.jpg";
 import './home.css';
 import { Button } from "../components/Button.js";
 import Projects from "./Projects";
+import Preview from "./preview";
 
 export default function Home() {
   return (
@@ -25,12 +25,8 @@ export default function Home() {
         <h2 className="h2-big">Discover Your Favorite art here</h2>
         <p className="p-big">A platform to discover talent and also show your own skills</p>
       </div>
-      {/* <div className="menu">
-            <Button text="Popular"/>
-            
-        </div> */}
         <Projects />
-
+        <Preview />
     </div>
     
   );
