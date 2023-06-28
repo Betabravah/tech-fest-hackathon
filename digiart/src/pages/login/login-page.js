@@ -13,6 +13,7 @@ export const LoginPage = () => {
             </div> */}
             <div><img className="login-img" src={art} alt="art-showcase" /> </div>
             <LoginForm />
+            
         </div>
     )
 }
