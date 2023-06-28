@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
+import GoogleButton from "react-google-button";
 import "./style.css";
+
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { login } = useUserAuth();
+  const { login, googleSignin } = useUserAuth();
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -18,6 +20,17 @@ function LoginForm() {
     }
     if (id === "password") {
       setPassword(value);
+    }
+  };
+
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      await googleSignin();
+      navigate("/home");
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -37,7 +50,7 @@ function LoginForm() {
       <div className="login-header">Login to your account</div>
       <div className="login-form-body">
         <div className="email label-input">
-          <label className="label" htmlFor="email">
+          <label className="label" for="email">
             Email{" "}
           </label>
           <input
@@ -50,7 +63,7 @@ function LoginForm() {
           />
         </div>
         <div className="password label-input">
-          <label className="label" htmlFor="password">
+          <label className="label" for="password">
             Password{" "}
           </label>
           <input
@@ -63,10 +76,13 @@ function LoginForm() {
           />
         </div>
       </div>
-      <div className="login-button">
-        <button type="submit" className="btn" onClick={(e) => handleSubmit(e)}>
+      <div class="login-button">
+        <button type="submit" class="btn" onClick={(e) => handleSubmit(e)}>
           Login
         </button>
+      </div>
+      <div class="signin-with-google">
+        <GoogleButton class="google" onClick={(e) => handleGoogleSignIn(e)} />
       </div>
       <div className="already">
         <p>Don't have an account?</p>
