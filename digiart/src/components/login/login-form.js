@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth} from '../../context/UserAuthContext';
 import './style.css'
 function LoginForm() {
 
     const [email, setEmail] = useState(null);
     const [password,setPassword] = useState(null);
+    const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+    const { login } = useUserAuth();
+
 
 
     const handleInputChange = (e) => {
@@ -18,8 +25,15 @@ function LoginForm() {
         
     }
 
-    const handleSubmit  = () => {
-        console.log(email,password);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        try {
+            await login(email, password);
+            navigate('/');
+        } catch (err) {
+            setError(err.message);
+        }
     }
 
 
@@ -43,7 +57,7 @@ function LoginForm() {
             </div>
             <div className='already'>
                 <p>Don't have an account?</p>
-                <a className='login'>Login</a>
+                <Link to='/signup'>Sign up</Link>
             </div>
         </div>
     )

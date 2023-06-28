@@ -1,37 +1,53 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../../context/UserAuthContext';
+import { Alert } from 'react-bootstrap';
+
 import './style.css'
+
+
 function SignUpForm() {
 
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password,setPassword] = useState(null);
-    const [confirmPassword,setConfirmPassword] = useState(null);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
 
+    const navigate = useNavigate();
 
+    const { signup } = useUserAuth();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        try {
+            await signup(email, password);
+            navigate('/login');
+        } catch (err) {
+            setError(err.message);
+        }
+    }
 
     const handleInputChange = (e) => {
-        const {id , value} = e.target;
-        if(id === "firstName"){
+        const { id, value } = e.target;
+        if (id === "firstName") {
             setFirstName(value);
         }
-        if(id === "lastName"){
+        if (id === "lastName") {
             setLastName(value);
         }
-        if(id === "email"){
+        if (id === "email") {
             setEmail(value);
         }
-        if(id === "password"){
+        if (id === "password") {
             setPassword(value);
         }
-        if(id === "confirmPassword"){
+        if (id === "confirmPassword") {
             setConfirmPassword(value);
         }
 
-    }
-
-    const handleSubmit  = () => {
-        console.log(firstName,lastName,email,password,confirmPassword);
     }
 
 
@@ -39,6 +55,7 @@ function SignUpForm() {
         <div className="signup-form">
             <div className='signup-header'>Create account</div>
             <div className="signup-form-body">
+                {error && <Alert variant='danger'>{error}</Alert>}
                 <div className="username label-input">
                     <label className="label" for="firstName">First Name </label>
                     <input className="input" type="text" id="firstName" value={firstName} onChange={(e) => handleInputChange(e)} placeholder="first name" />
@@ -65,7 +82,7 @@ function SignUpForm() {
             </div>
             <div className='already'>
                 <p>Already have an account?</p>
-                <a className='login'>Login</a>
+                <Link to='/login'>Login</Link>
             </div>
         </div>
     )
