@@ -15,6 +15,10 @@
     font-family: 'Roboto';
 }
 
+input {
+    padding: 1rem;
+}
+
 .label-input {
     margin: 0.8em;
     display: flex;

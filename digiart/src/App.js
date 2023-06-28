@@ -13,8 +13,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoPage />} />
-          <Route path='/signup' element={<SignUpPage />} />
-          <Route path='/login' element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
