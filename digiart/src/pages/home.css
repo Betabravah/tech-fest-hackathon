@@ -1,0 +1,80 @@
+
+.bg-1{
+    width: 80rem;
+    height: 40rem;
+
+}
+
+
+.main{
+    padding-top: 0;
+    background-image: url('../img/background1.jpg');
+    background-size: cover;
+    background-position: 'center';
+    height: 40rem;
+    width: 100%; 
+    /* opacity: 0.3; */
+
+    /* box-shadow: black;  */
+    /* box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5); */
+
+}
+.p-big{
+    font-size: 3rem;
+    color: white;
+    z-index: 20;
+    opacity: 1;
+}
+.h2-big{
+    opacity: 1.0;
+    font-size: 4rem;
+    color: white;
+    z-index: 20;
+    padding-top: 10rem;
+}
+
+.nav-list{
+    padding:2rem;
+    display:flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+.nav-list--type{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 40%;
+    padding: 10px;
+}
+.description{
+    background-color: white;
+    width: 40rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+.img-main{
+    background-color: white;
+    border-radius: 1%;
+    width: 20rem;
+    height: 20rem;
+}
+.img-des{
+    display: flex;
+    flex-direction: row;
+    width: 24.9rem;
+    gap: 7rem;
+}
+.new{
+    background-color: white;
+}
+.projects{
+    padding-left: 3.9rem;
+    padding-top: 1rem;
+    background-color: white;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 25rem);
+    grid-gap: 0rem;
+}
