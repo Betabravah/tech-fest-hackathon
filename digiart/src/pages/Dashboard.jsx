@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Avatar } from "@mui/material";
 import { useUserAuth } from "../context/UserAuthContext";
+import Project from "../components/Project";
 
 function Art(props) {
   // props = { src: logo, title: "Title", description: "This is a description" };
@@ -67,7 +68,7 @@ function Tabs() {
   });
 
   const tabs = [
-    <Art />,
+    <Project />,
     <>
       <h2>Hello</h2>
     </>,
@@ -87,7 +88,7 @@ export default function Dashboard() {
   let firstname = "";
   let lastname = "";
 
-  if (user) ({ firstname, lastname } = JSON.parse(user.displayName));
+  if (user) [firstname, lastname] = user.displayName.split(" ");
 
   return (
     <>

@@ -1,4 +1,4 @@
-import Project from "./Project"
+import Project from "../components/Project"
 import './home.css'
 import { Link } from "react-router-dom";
 import Preview from "./preview";

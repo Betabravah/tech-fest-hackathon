@@ -22,7 +22,7 @@ export function UserAuthContextProvider({ children }) {
     onAuthStateChanged(auth, function (user) {
       if (user) {
         updateProfile(user, {
-          displayName: JSON.stringify({ firstname, lastname }),
+          displayName: `${firstname} ${lastname}`,
         });
       }
     });

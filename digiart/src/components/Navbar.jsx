@@ -15,7 +15,7 @@ function Navbar() {
   let lastname = "";
 
   if (user && user.displayName)
-    ({ firstname, lastname } = JSON.parse(user.displayName));
+    [firstname, lastname] = user.displayName.split(" ");
 
   return (
     <nav className="flex justify-between p-6 h-20 ">

@@ -4,10 +4,10 @@ import { Button } from "@mui/material"
 import image from "../img/project1.jpg"
 
 
-const Preview = () => {
+const Preview = (props) => {
     return(
         <div>
-            <h3>Name</h3>
+            <h3>{props.name}</h3>
             <div>
                 <Button text="Buy"/>
                 <button>

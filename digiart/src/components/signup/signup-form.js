@@ -53,7 +53,7 @@ function SignUpForm() {
       <div className="signup-form-body">
         {error && <Alert variant="danger">{error}</Alert>}
         <div className="username label-input">
-          <label className="label" htmlFor="firstName">
+          <label className="label" htmlhtmlFor="firstName">
             First Name{" "}
           </label>
           <input
@@ -66,7 +66,7 @@ function SignUpForm() {
           />
         </div>
         <div className="lastname label-input">
-          <label className="label" htmlFor="lastName">
+          <label className="label" htmlhtmlFor="lastName">
             Last Name{" "}
           </label>
           <input
@@ -80,7 +80,7 @@ function SignUpForm() {
           />
         </div>
         <div className="email label-input">
-          <label className="label" htmlFor="email">
+          <label className="label" htmlhtmlFor="email">
             Email{" "}
           </label>
           <input
@@ -93,7 +93,7 @@ function SignUpForm() {
           />
         </div>
         <div className="password label-input">
-          <label className="label" htmlFor="password">
+          <label className="label" htmlhtmlFor="password">
             Password{" "}
           </label>
           <input
@@ -106,7 +106,7 @@ function SignUpForm() {
           />
         </div>
         <div className="confirm-password label-input">
-          <label className="label" htmlFor="confirmPassword">
+          <label className="label" htmlhtmlFor="confirmPassword">
             Confirm Password{" "}
           </label>
           <input
