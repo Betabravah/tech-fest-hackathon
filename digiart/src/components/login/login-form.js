@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 import "./style.css";
 function LoginForm() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function LoginForm() {
       <div className="login-header">Login to your account</div>
       <div className="login-form-body">
         <div className="email label-input">
-          <label className="label" for="email">
+          <label className="label" htmlFor="email">
             Email{" "}
           </label>
           <input
@@ -50,7 +50,7 @@ function LoginForm() {
           />
         </div>
         <div className="password label-input">
-          <label className="label" for="password">
+          <label className="label" htmlFor="password">
             Password{" "}
           </label>
           <input
@@ -63,8 +63,8 @@ function LoginForm() {
           />
         </div>
       </div>
-      <div class="login-button">
-        <button type="submit" class="btn" onClick={(e) => handleSubmit(e)}>
+      <div className="login-button">
+        <button type="submit" className="btn" onClick={(e) => handleSubmit(e)}>
           Login
         </button>
       </div>

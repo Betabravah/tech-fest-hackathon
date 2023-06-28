@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Avatar } from "@mui/material";
+import { useUserAuth } from "../context/UserAuthContext";
 
 function Art(props) {
   // props = { src: logo, title: "Title", description: "This is a description" };
@@ -81,16 +82,19 @@ function Tabs() {
 }
 
 export default function Dashboard() {
-  const user = {
-    name: "Abebe Kebede",
-  };
+  const { user } = useUserAuth();
+
+  let firstname = "";
+  let lastname = "";
+
+  if (user) ({ firstname, lastname } = JSON.parse(user.displayName));
 
   return (
     <>
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center p-3 ">
-          <Avatar>{user.name[0].toUpperCase()}</Avatar>
-          <p className="mt-2">{user.name}</p>
+          <Avatar>{firstname.toUpperCase()[0]}</Avatar>
+          <p className="mt-2">{firstname + " " + lastname}</p>
         </div>
 
         <Tabs />

@@ -21,7 +21,7 @@ function SignUpForm() {
     e.preventDefault();
     setError("");
     try {
-      await signup(email, password);
+      await signup(email, password, firstName, lastName);
       navigate("/login");
     } catch (err) {
       setError(err.message);
@@ -53,7 +53,7 @@ function SignUpForm() {
       <div className="signup-form-body">
         {error && <Alert variant="danger">{error}</Alert>}
         <div className="username label-input">
-          <label className="label" for="firstName">
+          <label className="label" htmlFor="firstName">
             First Name{" "}
           </label>
           <input
@@ -66,7 +66,7 @@ function SignUpForm() {
           />
         </div>
         <div className="lastname label-input">
-          <label className="label" for="lastName">
+          <label className="label" htmlFor="lastName">
             Last Name{" "}
           </label>
           <input
@@ -80,7 +80,7 @@ function SignUpForm() {
           />
         </div>
         <div className="email label-input">
-          <label className="label" for="email">
+          <label className="label" htmlFor="email">
             Email{" "}
           </label>
           <input
@@ -93,7 +93,7 @@ function SignUpForm() {
           />
         </div>
         <div className="password label-input">
-          <label className="label" for="password">
+          <label className="label" htmlFor="password">
             Password{" "}
           </label>
           <input
@@ -106,7 +106,7 @@ function SignUpForm() {
           />
         </div>
         <div className="confirm-password label-input">
-          <label className="label" for="confirmPassword">
+          <label className="label" htmlFor="confirmPassword">
             Confirm Password{" "}
           </label>
           <input
@@ -119,8 +119,8 @@ function SignUpForm() {
           />
         </div>
       </div>
-      <div class="signup-button">
-        <button type="submit" class="btn" onClick={(e) => handleSubmit(e)}>
+      <div className="signup-button">
+        <button type="submit" className="btn" onClick={(e) => handleSubmit(e)}>
           SignUp
         </button>
       </div>
