@@ -12,27 +12,24 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState("");
 
-  function signup(email, password) {
-    console.log(99999999999);
-    createUserWithEmailAndPassword(auth, email, password);
-  }
-  function login(email, password) {
-    signInWithEmailAndPassword(auth, email, password);
-  }
+    function signup(email, password) {
+        createUserWithEmailAndPassword(auth, email, password);
+    }
+    function login(email, password) {
+        signInWithEmailAndPassword(auth, email, password);
+    }
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-  return (
-    <userAuthContext.Provider value={{ user, signup }}>
-      {children}
-    </userAuthContext.Provider>
-  );
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => {
+            unsubscribe();
+        }
+    }, []);
+     return (
+        <userAuthContext.Provider value={{user, signup, login}}>{children}</userAuthContext.Provider>
+     );
 }
 
 export function useUserAuth() {

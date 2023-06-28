@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Avatar } from "@mui/material";
-import logo from "../img/logo.png";
 
 function Art(props) {
   // props = { src: logo, title: "Title", description: "This is a description" };

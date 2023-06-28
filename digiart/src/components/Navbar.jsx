@@ -7,6 +7,7 @@ import logo from "../img/logo.png";
 import { Button } from "./Button";
 import SearchBar from "./SearchBar";
 
+
 function Navbar() {
   const user = { name: "A" };
 

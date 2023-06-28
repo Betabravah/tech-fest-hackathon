@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserAuth } from "../../context/UserAuthContext";
 import "./style.css";
 function LoginForm() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [error, setError] = useState("");
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
+  const navigate = useNavigate();
+  const { login } = useUserAuth();
 
-    if (id === "email") {
-      setEmail(value);
-    }
-    if (id === "password") {
-      setPassword(value);
+  if (id === "email") {
+    setEmail(value);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await login(email, password);
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -63,4 +72,5 @@ function LoginForm() {
     </div>
   );
 }
+
 export default LoginForm;
