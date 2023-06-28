@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgb(27, 25, 6);
+}
+
+.signup-container {
+    background: linear-gradient(to top right, #000000, #07f5f9e3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 2rem;
+    width: 80%;
+    margin: 3rem auto;
+    height: 30rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.quote {
+    color: #fff;
+    width: 80%;
+    position: absolute;
+    top: 6rem
+}
+
+
+.signup-img {
+    width: 90%;
+    filter: drop-shadow(-15px 25px 10px #000);
+}
